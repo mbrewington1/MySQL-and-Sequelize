@@ -1,18 +1,24 @@
-
+// Defining Tables in DB in Model
 module.exports = function(connection, Sequelize) {
-    const Product = connection.define(
-      "Product",
-      {
-        product_name: Sequelize.STRING,
-        department_name: Sequelize.STRING,
-        price: Sequelize.STRING,
-        stock_quantity: {
-          type: Sequelize.INTEGER,
-          validate: { min: 1 }
-        }
+    const Product = connection.define('Product', {
+      product_name: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      { timestamps: false }
-    );
-  
+      department_name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      stock_quantity:{
+        type:Sequelize.INTEGER,
+        allowNull: false
+      }
+    });
     return Product;
-  };
+  }
+ 
+ 
