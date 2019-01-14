@@ -15,5 +15,14 @@
     "mysql": "^2.16.0",
     "mysql2": "^1.6.4",
     "sequelize": "^4.42.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbrewington1/MySQL-and-Sequelize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mbrewington1/MySQL-and-Sequelize/issues"
+  },
+  "homepage": "https://github.com/mbrewington1/MySQL-and-Sequelize#readme"
 }
