@@ -19,21 +19,47 @@ const clearInput = function() {
   $("[id =input]").val("");
 };
 
+// const validate = function(item) {
+//   if (item.incart.padStart(4,0) > item.instock.padStart(4,0)) {
+//     $(".alert").removeClass("hide");
+//     clearInput();
+//   } else if (isNaN(item.incart)){
+//     $(".alert").removeClass("hide");
+//     clearInput();
+//   }
+//   else {
+//     cart.push(item);
+//     clearInput();
+//   }
+// };
+
+// takes in an object and 
 const validate = function(item) {
-  if (item.incart.padStart(4,0) > item.instock.padStart(4,0)) {
-    $(".alert").removeClass("hide");
-    clearInput();
-  } else if (isNaN(item.incart)){
-    $(".alert").removeClass("hide");
-    clearInput();
+  itemQty = parseInt(item.incart);
+  stockQty = parseInt(item.instock);
+
+  console.log(itemQty);
+  // Check if itemQty is an integer
+  if(isNaN(itemQty)) {
+    return undefined;
   }
-  else {
+
+  // chek if stockQty is an integer
+  if(isNaN(stockQty)) {
+    return undefined;
+  }
+
+  // If itemQty is gt stockQty alert user
+  if (itemQty > stockQty) {
+    $(".alert").removeClass("hide");
+    clearInput();
+    return false;
+  } else {
     cart.push(item);
     clearInput();
+    return true;
   }
 };
-
-
 
 //this is the document ready function that says to render all the items in the database, to the table.
 $(document).ready(() => {
